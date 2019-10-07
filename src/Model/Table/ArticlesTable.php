@@ -52,14 +52,12 @@ class ArticlesTable extends Table
             ->allowEmptyString('id', null, 'create');
 
         $validator
-            ->scalar('title')
-            ->maxLength('title', 50)
-            ->allowEmptyString('title');
+            ->notEmpty('title')
+            ->requirePresence('title');
 
         $validator
-            ->scalar('body')
-            ->allowEmptyString('body');
-
+            ->notEmpty('body')
+            ->requirePresence('body');
         return $validator;
     }
 }
